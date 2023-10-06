@@ -8,7 +8,7 @@ main = Blueprint('main', __name__, template_folder='templates')
 
 @main.route('/')
 def home():
-    print(f"testing...another comment")
+    print(f"testing...another comment after installing sh module")
     return render_template('index.html')
 
 
