@@ -2,7 +2,7 @@ import secrets
 from flask import Blueprint, render_template, request
 import hmac
 import subprocess
-import git
+import sh
 
 main = Blueprint('main', __name__, template_folder='templates')
 
@@ -16,7 +16,7 @@ def home():
 @main.route('/update_server', methods=['POST'])
 def webhook():
     if request.method == 'POST':
-        repo = git.Repo('https://github.com/chris-mastic/baileytech.git')
+        repo = sh.git.Repo('https://github.com/chris-mastic/baileytech.git')
         origin = repo.remotes.origin
         origin.pull()
         return 'Updated Pythonanywhere successfully', 200
