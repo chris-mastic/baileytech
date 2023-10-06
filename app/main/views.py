@@ -5,7 +5,7 @@ main = Blueprint('main', __name__, template_folder='templates')
 
 @main.route('/', methods=['GET'])
 def home():
-    print(f"testing...another comment after adding hhhhh new flask app")
+    print(f"testing...another test")
     return render_template('index.html')
 
 
