@@ -1,7 +1,4 @@
-import secrets
 from flask import Blueprint, render_template, request
-import hmac
-import subprocess
 import git
 
 main = Blueprint('main', __name__, template_folder='templates')
