@@ -8,7 +8,7 @@ main = Blueprint('main', __name__, template_folder='templates')
 
 @main.route('/')
 def home():
-    print(f"testing... I hope this works. Now I added a secret. We will see...Failed. Maybe now")
+    print(f"testing...")
     return render_template('index.html')
 
 
