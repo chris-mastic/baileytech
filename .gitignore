@@ -1,5 +1,5 @@
 node_modules/
 package-lock.json
 venv/
-app/_pycache_/
-app/main/_pycache_/
+app/__pycache__/
+app/main/__pycache__/
