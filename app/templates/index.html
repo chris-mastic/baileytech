@@ -655,12 +655,13 @@
     <script src="static/js/script.js"></script>
     <script>
       $("form").submit(function(event) {
-   var recaptcha = $("#g-recaptcha-response").val();
-   if (recaptcha === "") {
-      event.preventDefault();
-      alert("Please check the recaptcha");
-   }
-});
+        var recaptcha = $("#g-recaptcha-response").val();
+        if (recaptcha === "")
+        {
+            event.preventDefault();
+            alert("Please check the recaptcha box");
+        }
+        });
     </script>
   </body>
 </html>
