@@ -1,6 +1,5 @@
 import os
 from flask import Flask, render_template
-from flask_recaptcha import ReCaptcha
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -12,8 +11,7 @@ def create_app():
     )
     app.config['RECAPTCHA_SECRET_KEY'] ='6LdJYR4pAAAAAOmQzWwtH5MHj0HCj8AXcaBsesgJ'
     app.config['RECAPTCHA_SECRET_KEY'] = '6LdJYR4pAAAAAFOaeMvNbjZpcJWPjyps5oiVBIuG'
-    recaptcha = ReCaptcha(app)
-    
+        
     from app.main.views import main
     
    
