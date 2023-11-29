@@ -1,0 +1,18 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+
+<table class="table table-hover">
+    <tr valign='top'>
+        
+        <td>
+            <span style="color: #6a8af5;">
+                VAR
+            </span>
+            said
+            <span style="background-color: #f9fcf6;padding: 2px; border-radius: 3px;">
+                VAR
+            </span><br>
+            <br>
+            {{ wtf.quick_form(form) }}           
+        </td>
+    </tr>
+</table>
