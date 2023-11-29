@@ -1,18 +1,54 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
-<table class="table table-hover">
-    <tr valign='top'>
-        
-        <td>
-            <span style="color: #6a8af5;">
-                VAR
-            </span>
-            said
-            <span style="background-color: #f9fcf6;padding: 2px; border-radius: 3px;">
-                VAR
-            </span><br>
-            <br>
-            {{ wtf.quick_form(form) }}           
-        </td>
-    </tr>
-</table>
+<section id="contact" class="contact my-7">
+      
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="fw-bold" id="info">Get More Information</h2>
+          <hr class="hr-heading" />
+          <p class="lead">
+            We provide innovative software solutions that empower small
+            businesses to thrive in the digital era.
+          </p>
+          <ul class="list-unstyled lh-lg">
+            <li class="d-flex align-items-center">
+              <i class="fas fa-check text-primary mx-3"></i>
+              <div>
+                <strong>Customized Solutions: </strong> Our solutions are
+                designed to meet your specific business needs, ensuring
+                maximum efficiency and productivity.
+              </div>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-check text-primary mx-3"></i>
+              <div>
+                <strong>Seamless Integration:</strong> We seamlessly integrate
+                our software with your existing systems, minimizing
+                disruptions and optimizing workflows.
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-5 offset-md-1">
+          <form action="https://formspree.io/f/xpzgondd" method="POST">
+          <!-- <form  action="https://formspree.io/" method="POST"> -->
+            <div class="mb-4">
+              {{ form.username }}
+            </div>
+            <div class="mb-4">
+                {{ form.email }}
+            </div>
+            <div class="mb-4">
+                {{ form.phone }}
+            </div>
+            <div class="mb-4">
+                {{ form.interest }}
+            </div>
+            
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
