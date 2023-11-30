@@ -31,7 +31,11 @@
           </ul>
         </div>
         <div class="col-md-5 offset-md-1">
-          <form action="https://formspree.io/f/xpzgondd" method="POST">
+            <form action="#" method="POST">
+                {{ form.csrf_token() }}
+               
+                <!-- {{ form.hidden_tag() }} -->
+          <!-- <form action="https://formspree.io/f/xpzgondd" method="POST"> -->
           <!-- <form  action="https://formspree.io/" method="POST"> -->
             <div class="mb-4">
                {{ form.username(class="form-control bg-secondary",
@@ -48,6 +52,12 @@
             <div class="mb-4">
                 {{ form.interest(class="form-control bg-secondary",
                 placeholder="Select Interest")  }}
+            </div>
+            <div class="mb-4">
+                {{ form.recaptcha(class="g-recaptcha  bg-secondary") }}
+            </div>
+            <div class="mb-4">
+                {{ form.submit(class="form-control bg-secondary")  }}
             </div>
             
             

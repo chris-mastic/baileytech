@@ -1,6 +1,8 @@
+import datetime
 import json
+from app import app
 from jinja2 import Template
-from flask import Blueprint, render_template, flash, redirect, url_for
+from flask import Blueprint, render_template, flash, redirect, request, url_for
 import git
 from app.form import CommentForm
 
@@ -27,13 +29,14 @@ main = Blueprint('main', __name__, template_folder='templates')
 def comments():
     print("in comments")
     form = CommentForm()
-    print(form)
-    if form.validate_on_submit():
-        uusername = form.username.data
+    print(form.csrf_token)
+    if form.is_submitted():
+        username = form.username.data
         email = form.email.data       
-        body = form.comment.data
+        print(f"reacptcha value {request.form['g-recaptcha-response']}")
         print('in form.validate')
         flash('Your comment is now live!')  
-        return redirect(url_for('baileytech'))  
+        return redirect(url_for('main.comments'))  
     print('s/b rendering template')
+    
     return render_template('baileytech.html', title = 'Comment', form = form)

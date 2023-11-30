@@ -11,6 +11,11 @@ app = Flask(__name__)
 
 app.config.from_object(Config)
 
+print(f"app.config {app.config}")
+print(f"env vars private {os.environ.get('RECAPTCHA_PRIVATE_KEY')}")
+print(f"env vars public {os.environ.get('RECAPTCHA_PUBLIC_KEY')}")
+print(f"env vars secret {os.environ.get('SECRET_KEY')}")
+
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
