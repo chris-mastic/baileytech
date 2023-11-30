@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="DC.title" content="Geo Tag Generator" />
+    <meta name="geo.region" content="US" />
+    <meta name="geo.position" content="30.29611;-89.720964" />
+    <meta name="ICBM" content="30.29611, -89.720964" />
+    <meta name=”author” content=”Chris Mazza” />
+    <meta name=”keywords” content=”tag, generator, geo, web, tags, meta, site, create, html, editor, geocoding, geotagging” />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="static/css/font-awesome.css" />
+    <link rel="stylesheet" href="static/css/bootstrap.css" />
+    <link rel="stylesheet" href="static/css/styles.css" />
+    <link rel="icon" href="static/images/favicon.png" />
+    <title>Welcome To BITS</title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+
+    <!-- Scripts Section -->
+    {% block scripts %}
+        <!--Your previous code-->
+
+        <!-- reCaptcha Integration -->
+        <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    {% endblock %}
+
+  </body>
+
+
+
+</html>
