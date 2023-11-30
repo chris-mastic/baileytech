@@ -30,13 +30,18 @@ def comments():
     print("in comments")
     form = CommentForm()
     print(form.csrf_token)
+    error = ''
     if form.is_submitted():
         username = form.username.data
-        email = form.email.data       
-        print(f"reacptcha value {request.form['g-recaptcha-response']}")
-        print('in form.validate')
-        flash('Your comment is now live!')  
-        return redirect(url_for('main.comments'))  
-    print('s/b rendering template')
-    
-    return render_template('baileytech.html', title = 'Comment', form = form)
+        email = form.email.data 
+        if (request.form['g-recaptcha-response'] == ''):
+            print(f"reacptcha value {request.form['g-recaptcha-response']}")
+            print("not validate by recaptcha")
+            error ='Please verify you are not a robot' 
+            
+            #return redirect(url_for('main.comments'))  
+        else:
+            #TODO: send email
+            pass
+    print({error})     
+    return render_template('baileytech.html', title = 'Comment', error=error, form=form)
