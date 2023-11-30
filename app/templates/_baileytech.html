@@ -71,12 +71,7 @@
 
     <!-- Header -->
     <header class="header position-relative">
-      <!-- <img
-        src="static/images/vertical-decoration-left.svg"
-        alt=""
-        class="vertical-decoration position-absolute d-none d-md-block"
-      /> -->
-      <div class="container">
+     <div class="container">
         <div class="row">
           <div class="col-md-6 pt-5">
             <h1 class="xl-text mt-5">
@@ -129,12 +124,6 @@
           <div class="col-md-5 offset-md-1">
           <form action="#" method="POST">
             {{ form.csrf_token() }}
-            <!-- {{ form.hidden_tag() }} -->
-            <!-- <form action="https://formspree.io/f/xpzgondd" method="POST"> -->
-            <!-- <form  action="https://formspree.io/" method="POST"> -->
-            <!-- {% if error %}
-              <div class="bs-danger"><strong>Error:</strong> {{ error }}</div>
-            {% endif %} -->
             {% if error %}
               <div class="alert alert-danger" role="alert">
                 <p>Please verify you are not a robot</p>
@@ -159,8 +148,8 @@
             <div class="mb-4">
               {{ form.recaptcha(class="g-recaptcha  bg-secondary") }}
             </div>
-            <div class="mb-4">
-              {{ form.submit(class="form-control bg-secondary")  }}
+            <div class="d-grid gap-2">
+              {{ form.submit(class="btn btn-primary text-white")  }}
             </div>
             
           </form>
@@ -642,31 +631,6 @@
     <script src="static/js/replaceme.min.js"></script>
     <script src="static/js/bootstrap.bundle.min.js"></script>
     <script src="static/js/script.js"></script>
-    <script>
-      $("form").submit(function(event) {
-        var res = true;
-        $.ajax({
-          url:"validate",
-          type: "post",
-          dataType: 'json',
-          data: {registration:"success", name: "xyz", email: "abc@gmail.com"},
-          success: function(result){
-            if(result.abc === false){
-              res = false;  
-            }
-          },
-          //set async to false to run synchronously (blocking)
-          async: false
-        });
-
-        //reCaptcha validated so submit form
-        if (res === false){
-          event.preventDefault();
-        }
-      });
         
-    </script>
-    
-
   </body>
 </html>
