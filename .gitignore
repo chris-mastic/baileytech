@@ -1,0 +1,6 @@
+app/__pycache__
+app/main/__pycache__
+app/static/package.json
+node_modules/
+package-lock.json
+venv/
