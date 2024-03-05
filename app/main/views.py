@@ -1,37 +1,13 @@
-import datetime
-import json
 import smtplib
-from app import mail
 from jinja2 import Template
 from flask import Blueprint, render_template, flash, redirect, request, url_for
-from flask_mail import Mail, Message
-import git
-import app
 from app.form import CommentForm
-from flask_mail import Message, Mail
-from flask import Flask
 import smtplib
-import ssl
 from email.mime.text import MIMEText
 
 
 
 main = Blueprint('main', __name__, template_folder='templates')
-
-# @main.route('/', methods=['GET'])
-# def home():
-#     print(f"testing...another test. Yay!!")
-#     pub_key = "6LdJYR4pAAAAAOmQzWwtH5MHj0HCj8AXcaBsesgJ"
-#     return render_template('index.html',pub_key=pub_key)
-
-# @main.route('/validate', methods=['POST', 'GET'])
-# def validate():
-#     print('in validate view')
-#     # if recaptcha.verify():
-#     #     pass
-#     # else:
-#     #     pass
-#     return json.dumps({"abc": True})
 
 @main.route('/', methods = ['GET', 'POST'])
 @main.route('/baileytech', methods = ['GET', 'POST'])
