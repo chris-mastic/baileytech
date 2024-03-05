@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
+from flask_mail import Mail
 from flask_moment import Moment
 from config import Config
 
@@ -9,7 +10,11 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 
+mail = Mail()
+
 app.config.from_object(Config)
+
+mail = Mail(app)
 
 print(f"app.config {app.config}")
 print(f"env vars private {os.environ.get('RECAPTCHA_PRIVATE_KEY')}")
