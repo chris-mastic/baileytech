@@ -1,6 +1,6 @@
 import smtplib
 from jinja2 import Template
-from flask import Blueprint, render_template, flash, redirect, request, url_for
+from flask import Blueprint, render_template, flash, redirect, request, url_for, flash
 from app.form import CommentForm
 import smtplib
 from email.mime.text import MIMEText
@@ -47,7 +47,9 @@ def comments():
                 with smtplib.SMTP_SSL("smtp.zoho.com", 465) as server:
                     server.login("chrismazza@baileytech.tech", "iUN0BTF2CYmj")
                     server.send_message(msg)
+                    
                     print("Email sent successfully!")
+                    flash("Message sent. Thank you!!", "success")
             except Exception as e:
                 print(f"Error sending email: {e}")
 
