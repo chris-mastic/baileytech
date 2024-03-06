@@ -65,6 +65,15 @@
   <!-- Header -->
   <header class="header position-relative">
     <div class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
       <div class="row">
         <div class="col-md-6 pt-5">
           <h1 class="xl-text mt-5">
@@ -112,6 +121,7 @@
           </ul>
         </div>
         <div class="col-md-5 offset-md-1">
+
           <form action="#" method="POST">
             {{ form.csrf_token() }}
             {% if error %}
@@ -128,7 +138,7 @@
               placeholder="Enter email") }}
             </div>
             <div class="mb-4">
-              
+
               {{ form.phone(class="form-control bg-secondary",
               placeholder="Enter phone") }}
             </div>
@@ -137,7 +147,7 @@
             </div>
             <div class="mb-4">
               <div class="g-recaptcha bg-secondary" data-sitekey="6LdJYR4pAAAAAOmQzWwtH5MHj0HCj8AXcaBsesgJ"></div>
-            
+
             </div>
             <div class="d-grid gap-2">
               {{ form.submit(class="btn btn-primary text-white") }}
@@ -562,6 +572,12 @@
   <script src="static/js/replaceme.min.js"></script>
   <script src="static/js/bootstrap.bundle.min.js"></script>
   <script src="static/js/script.js"></script>
+  <script>
+    // Automatically close the alert after 3 seconds (3000 milliseconds)
+    setTimeout(function () {
+      $('.alert').alert('close');
+    }, 3000);
+  </script>
 
 </body>
 
